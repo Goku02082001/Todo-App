@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h1>Welcome to Task Manager</h1>
+      <h1>Welcome</h1>
       <h3>Manage your tasks.</h3>
       <button onClick={handleLoginRedirect}>Login</button>
       <button onClick={handleRegisterRedirect}>Register</button>

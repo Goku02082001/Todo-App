@@ -25,7 +25,7 @@ let tasks = [];
 let users = [];
 
 app.get('/',(req,res)=>{
-    res.send("This is home")
+    res.send("This a Backedn application")
 })
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
