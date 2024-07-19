@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
+import url from '../url';
 
+const Url=url
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -8,7 +10,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/register', { username, password });
+      await axios.post(`${Url}/register`, { username, password });
       alert('User registered successfully');
     } catch (error) {
       alert('Error registering user');

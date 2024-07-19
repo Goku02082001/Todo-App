@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import TaskForm from './TaskForm';
-
-const socket = io('http://localhost:3000', {
+import url from '../url';
+const Url=url
+const socket = io(`${Url}`, {
   auth: {
     token: localStorage.getItem('token')
   }

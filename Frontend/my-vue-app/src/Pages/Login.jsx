@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import axios from 'axios';
-
+import url from '../url';
+const Url=url
 const Login = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -8,7 +9,7 @@ const Login = ({ setToken }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', { username, password });
+      const response = await axios.post(`${Url}/login`, { username, password });
       localStorage.setItem('token', response.data.token);
       setToken(response.data.token);
       alert('Logged in successfully');
