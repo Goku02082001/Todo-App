@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'https://todo-app-zqgo.vercel.app/register', 
+    origin: 'https://todo-app-zqgo.vercel.app', 
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
@@ -27,9 +27,9 @@ let users = [];
 app.get('/',(req,res)=>{
     res.send("This a Backedn application")
 })
-app.post('/register', (req, res) => {
+app.post('/register',async(req, res) => {
   const { username, password } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 10);
+  const hashedPassword = await bcrypt.hashSync(password, 10);
   users.push({ username, password: hashedPassword });
   res.status(201).send('User registered');
 });
